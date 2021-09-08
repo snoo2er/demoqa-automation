@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="DemoQA Test">
+    
+<!--    <listeners>-->
+<!--        <listener class-name="" />-->
+<!--    </listeners>-->
+
+    <test name="Main Functionality Test">
+        <classes>
+            <class name="com.solbegsoft.demoqa.automation.ui.MainFunctionalityTest" />
+        </classes>
+    </test>
+
+</suite>
