@@ -62,9 +62,9 @@ public abstract class AbstractWebDriver {
     }
     
     private void setDriverEnvVariables(){
-        String driversLocation = "src/test/resources/drivers/";
-        System.setProperty("webdriver.gecko.driver", driversLocation+"geckodriver.exe");
-        System.setProperty("webdriver.chrome.driver", driversLocation+"chromedriver.exe");
+        final String driversLocation = "src/test/resources/drivers/";
+        System.setProperty("webdriver.gecko.driver", driversLocation + "geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver", driversLocation + "chromedriver.exe");
     }
 
     void destroyDriver() {
