@@ -23,6 +23,8 @@ public abstract class AbstractWebDriver {
     public abstract WebDriver getDriver();
 
     public Browser getBrowser() {
+        setDriverEnvVariables();
+        
         if (browser == null) {
             String browserType = PropertyReader.getInstance().getProperty("browser");
             try {
@@ -57,6 +59,12 @@ public abstract class AbstractWebDriver {
                 .implicitlyWait(DEFAULT_IMPLICITLY_WAIT_TIMEOUT, TimeUnit.SECONDS)
                 .pageLoadTimeout(DEFAULT_PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS)
                 .setScriptTimeout(DEFAULT_SET_SCRIPT_TIMEOUT, TimeUnit.SECONDS);
+    }
+    
+    private void setDriverEnvVariables(){
+        final String driversLocation = "src/test/resources/drivers/";
+        System.setProperty("webdriver.gecko.driver", driversLocation + "geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver", driversLocation + "chromedriver.exe");
     }
 
     void destroyDriver() {
